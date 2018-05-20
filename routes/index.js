@@ -20,14 +20,14 @@ router.get('/', function(req, res, next) {
 
         }
     }
-    console.log(laureates);
+    console.log("LAUREATES: " + laureates);
 
 }).then(() =>{
 
         axios.get('http://api.fixer.io/latest?base=EUR')
         .then(res => {
         rates = res.data.rates.GBP;
-        console.log(rates);
+        console.log("RATES: " + rates);
 
 }).then(() =>{
         movies = [];
@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
             movies.push(title);
         }
     }
-    console.log(movies);
+    console.log("MOVIES: " + movies);
         }).then(() =>{
 
         res.render('index', { movies: movies, rates: rates, laureates:laureates });
